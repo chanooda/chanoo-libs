@@ -1,0 +1,36 @@
+{
+  "folders": [
+    {
+      "name": "Root",
+      "path": ".",
+    },
+    {
+      "name": "test-react",
+      "path": "apps/test",
+    },
+    {
+      "name": "test-next",
+      "path": "apps/test-next",
+    },
+    {
+      "name": "eslint-config",
+      "path": "packages/eslint-config",
+    },
+    {
+      "name": "typescript-config",
+      "path": "packages/typescript-config",
+    },
+  ],
+  "settings": {
+    "eslint.workingDirectories": [
+      {
+        "mode": "auto",
+      },
+    ],
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit",
+      "source.fixAll.format": "explicit",
+      "source.organizeImports": "explicit",
+    },
+  },
+}
