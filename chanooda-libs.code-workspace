@@ -20,6 +20,10 @@
       "name": "typescript-config",
       "path": "packages/typescript-config",
     },
+    {
+      "name": "prettier-config",
+      "path": "packages/prettier-config",
+    },
   ],
   "settings": {
     "eslint.workingDirectories": [

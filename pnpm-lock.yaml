@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@repo/prettier-config':
+        specifier: workspace:*
+        version: link:packages/prettier-config
       prettier:
         specifier: ^3.2.5
         version: 3.3.3
@@ -85,9 +88,6 @@ importers:
 
   packages/eslint-config:
     devDependencies:
-      '@eslint/js':
-        specifier: ^9.15.0
-        version: 9.15.0
       '@next/eslint-plugin-next':
         specifier: ^15.1.2
         version: 15.1.2
@@ -124,6 +124,8 @@ importers:
       typescript-eslint:
         specifier: ^8.18.1
         version: 8.18.1(eslint@9.15.0(jiti@1.21.7))(typescript@5.7.2)
+
+  packages/prettier-config: {}
 
   packages/typescript-config: {}
 
