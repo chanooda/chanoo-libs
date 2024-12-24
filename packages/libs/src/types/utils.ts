@@ -16,7 +16,6 @@ export type Unpacked<T> = T extends (infer U)[]
 
 /**
  * 객체 type에서 string인 값의 key에 대한 type 반환
- *
  */
 export type StringPropertyNames<T> = {
   [K in keyof T]: T[K] extends string ? K : never; // 조건부 타입에서 string 인 것만 반환

@@ -8,8 +8,8 @@
     "lib": ["es2023", "DOM", "DOM.Iterable"],
     "moduleDetection": "force",
 
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
 
     "declaration": true,

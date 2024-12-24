@@ -10,12 +10,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@repo/typescript-config": "workspace:^",
+    "@repo/libs": "workspace:*",
     "next": "15.1.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
     "@repo/eslint-config": "workspace:*",
     "@types/node": "^20",
     "@types/react": "^19",

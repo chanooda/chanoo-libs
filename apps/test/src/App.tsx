@@ -1,9 +1,19 @@
-function App() {
-  return <div />;
+import type { ChildrenProps } from '@repo/libs';
+import { useQuery } from '@repo/libs/react';
+
+function App({ children }: ChildrenProps) {
+  const { data } = useQuery({
+    queryKey: [''],
+    queryFn: async () => {
+      return await fetch('https://api.example.com').then((res) => {
+        return res.json();
+      });
+    },
+  });
+
+  console.log(data);
+
+  return <div>{children}</div>;
 }
-
-export interface A {}
-
-export interface B extends A {}
 
 export default App;
