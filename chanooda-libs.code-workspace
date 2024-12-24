@@ -13,6 +13,10 @@
       "path": "apps/test-next",
     },
     {
+      "name": "libs",
+      "path": "packages/libs",
+    },
+    {
       "name": "eslint-config",
       "path": "packages/eslint-config",
     },
