@@ -1,6 +1,4 @@
 {
   "include": ["src/**/*"],
-  "compilerOptions": {
-    "jsx": "preserve"
-  }
+  "extends": "@repo/typescript-config/react"
 }

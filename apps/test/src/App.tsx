@@ -1,8 +1,5 @@
 function App() {
-  const foo = (n) => {
-    return n;
-  };
-  return <div>{foo(2)}</div>;
+  return <div></div>;
 }
 
 export default App;
