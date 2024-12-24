@@ -8,14 +8,10 @@ import tseslint from 'typescript-eslint';
  * @type {import("eslint").Linter.Config}
  * */
 export const config = [
-  {
-    ...js.configs.recommended,
-    rules: {
-      ...js.configs.recommended.rules,
-      'arrow-body-style': ['error', 'always'],
-    },
-  },
+  js.configs.recommended,
   ...tseslint.configs.recommended,
+  eslintPluginPrettierRecommended,
+  eslintConfigPrettier,
   {
     languageOptions: {
       globals: {
@@ -25,16 +21,11 @@ export const config = [
     },
   },
   {
-    ...eslintPluginPrettierRecommended,
     rules: {
-      ...eslintPluginPrettierRecommended.rules,
-    },
-  },
-  {
-    ...eslintConfigPrettier,
-    rules: {
-      ...eslintConfigPrettier.rules,
       'arrow-body-style': ['error', 'always'],
+      'arrow-body-style': ['error', 'always'],
+      '@typescript-eslint/no-empty-object-type': ['off'],
+      '@typescript-eslint/consistent-type-imports': 'error',
     },
   },
 ];

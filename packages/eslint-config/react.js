@@ -15,6 +15,14 @@ export const reactDefaultConfig = [
     rules: {
       ...react.configs.flat.recommended.rules,
       'react/react-in-jsx-scope': 'off',
+      'react/jsx-sort-props': [
+        'error',
+        {
+          callbacksLast: true,
+          multiline: 'last',
+          shorthandFirst: false,
+        },
+      ],
     },
   },
   {

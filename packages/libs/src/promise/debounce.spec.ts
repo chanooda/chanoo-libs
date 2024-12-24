@@ -87,7 +87,9 @@ describe('debounce', () => {
     const func = jest.fn();
     const debouncedFunc = debounce(func, 50);
 
-    expect(() => debouncedFunc.cancel()).not.toThrow();
+    expect(() => {
+      return debouncedFunc.cancel();
+    }).not.toThrow();
   });
 
   it('abortController를 이용해 debounced 함수가 중단되어야 한다.', async () => {

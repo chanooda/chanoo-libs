@@ -1,5 +1,9 @@
 function App() {
-  return <div></div>;
+  return <div />;
 }
+
+export interface A {}
+
+export interface B extends A {}
 
 export default App;

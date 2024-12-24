@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { isObject } from '../definition/isObject';
-import { DeepMerge } from '../types';
+import type { DeepMerge } from '../types';
 
 export function mergeObject<T extends object, U extends object>(
   target: T,

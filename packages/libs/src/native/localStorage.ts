@@ -23,7 +23,7 @@ export function getLocalStorageItem<T>(key: string): T | null {
 
   try {
     return JSON.parse(item);
-  } catch (e) {
+  } catch {
     return item as unknown as T;
   }
 }

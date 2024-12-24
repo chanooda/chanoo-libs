@@ -1,4 +1,4 @@
-const OBJECT_TYPE = {
+export const OBJECT_TYPE = {
   date: 'Date',
   array: 'Array',
   regexp: 'RegExp',
