@@ -1,5 +1,8 @@
 {
   "extends": "@chanooda/typescript-config-frontend/base",
-  "include": ["src/**/*", "../react/src/types/props.ts"],
-  "exclude": []
+  "include": ["src/**/*"],
+  "exclude": [],
+  "compilerOptions": {
+    "outDir": "dist"
+  }
 }

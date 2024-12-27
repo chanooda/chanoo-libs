@@ -10,15 +10,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@chanooda/libs": "workspace:*",
+    "@chanooda/libs-react": "workspace:*",
+    "@tanstack/react-query": "^5.62.10",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "@chanooda/libs": "workspace:*"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@chanooda/typescript-config-frontend": "workspace:*",
     "@chanooda/eslint-config-frontend": "workspace:*",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
+    "@chanooda/typescript-config-frontend": "workspace:*",
+    "@types/node": "*",
+    "@types/react": "*",
+    "@types/react-dom": "*",
     "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^9.15.0",
     "typescript": "~5.6.2",
