@@ -1,8 +1,12 @@
 {
-  "name": "@repo/prettier-config",
+  "name": "@chanooda/prettier-config",
   "version": "0.0.0",
   "main": "base.json",
   "sideEffects": false,
-  "author": "chanooda",
-  "license": "MIT"
+  "author": "@chanooda",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://github.com/chanooda/chanoo-libs.git"
+  }
 }

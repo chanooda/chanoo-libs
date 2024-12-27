@@ -1,4 +1,4 @@
 {
   "include": ["src/**/*"],
-  "extends": "@repo/typescript-config/react"
+  "extends": "@chanooda/typescript-config-frontend/react"
 }

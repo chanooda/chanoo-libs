@@ -10,14 +10,14 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@repo/libs": "workspace:*",
+    "@chanooda/libs": "workspace:*",
     "next": "15.1.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@repo/typescript-config": "workspace:*",
-    "@repo/eslint-config": "workspace:*",
+    "@chanooda/typescript-config-frontend": "workspace:*",
+    "@chanooda/eslint-config-frontend": "workspace:*",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

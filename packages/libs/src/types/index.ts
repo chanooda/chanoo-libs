@@ -1,5 +1,6 @@
+export * from '../../../react/src/types/props';
 export * from './alias';
 export * from './object';
-export * from './props';
 export * from './string';
 export * from './utils';
+

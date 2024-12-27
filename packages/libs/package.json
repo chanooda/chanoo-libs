@@ -1,39 +1,28 @@
 {
-  "name": "@repo/libs",
+  "name": "@chanooda/libs",
   "version": "0.0.0",
   "description": "",
   "main": "index.ts",
+  "author": "@chanooda",
   "scripts": {
     "test": "jest"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
   "exports": {
     ".": {
       "types": "./src/index.ts",
       "import": "./src/index.ts"
-    },
-    "./react": {
-      "types": "./src/@react.ts",
-      "import": "./src/@react.ts"
     }
   },
   "devDependencies": {
     "jest": "^29.7.0",
     "ts-jest": "^29.2.5",
     "@jest/globals": "^29.7.0",
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
+    "@chanooda/eslint-config-frontend": "workspace:*",
+    "@chanooda/typescript-config-frontend": "workspace:*",
     "@types/jest": "^29.5.14"
   },
   "peerDependencies": {
-    "@tanstack/react-query": "^5.62.9",
-    "axios": "^1.7.9",
-    "react": "*",
-    "react-dom": "*",
-    "@types/node": "*",
-    "@types/react": "*",
-    "@types/react-dom": "*"
+    "@types/node": "*"
   }
 }

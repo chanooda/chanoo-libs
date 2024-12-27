@@ -1,5 +1,5 @@
-import type { ChildrenProps } from '@repo/libs';
-import { useQuery } from '@repo/libs/react';
+import type { ChildrenProps } from '@chanoooo/libs';
+import { useQuery } from '@chanoooo/libs/react';
 
 function App({ children }: ChildrenProps) {
   const { data } = useQuery({
