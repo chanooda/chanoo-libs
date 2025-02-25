@@ -1,5 +1,5 @@
 {
-  "extends": "@chanoooo/typescript-config/next",
+  "extends": "@chanooda/typescript-config-frontend/next.json",
   "compilerOptions": {
     "paths": {
       "@/*": ["./*"]

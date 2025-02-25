@@ -1,5 +1,5 @@
 {
-  "extends": "@chanooda/typescript-config-frontend/base",
+  "extends": "@chanooda/typescript-config-frontend/react",
   "include": ["src/**/*"],
   "exclude": [],
   "compilerOptions": {

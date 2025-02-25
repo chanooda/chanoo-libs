@@ -1,4 +1,4 @@
-import { config as baseConfig } from '@chanoooo/eslint-config/base';
+import baseConfig from '@chanooda/eslint-config-frontend/base';
 
 const config = [...baseConfig];
 

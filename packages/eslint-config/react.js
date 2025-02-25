@@ -3,12 +3,12 @@ import jsxA11y from 'eslint-plugin-jsx-a11y';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
-import { config as baseConfig } from './base.js';
+import baseConfig from './base.js';
 
 /**
  * @type {import("eslint").Linter.Config}
  * */
-export const reactDefaultConfig = [
+const reactDefaultConfig = [
   ...baseConfig,
   {
     ...react.configs.flat.recommended,
@@ -45,4 +45,4 @@ export const reactDefaultConfig = [
   ...pluginQuery.configs['flat/recommended'],
 ];
 
-export const config = [...reactDefaultConfig, reactRefresh.configs.recommended];
+export default [...reactDefaultConfig, reactRefresh.configs.recommended];

@@ -1,7 +1,22 @@
-import { ChildrenProps } from '@chanooda/libs-react';
+function App() {
+  const a = [1, 2, 3];
 
-function App({ children }: ChildrenProps) {
-  return <div>{children}</div>;
+  return (
+    <div>
+      {a.map((el) => {
+        return (
+          <div
+            key={el}
+            onClick={() => {
+              return console.log(el);
+            }}
+          >
+            {el}
+          </div>
+        );
+      })}
+    </div>
+  );
 }
 
 export default App;
