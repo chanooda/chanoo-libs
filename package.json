@@ -1,5 +1,5 @@
 {
-  "name": "chanoo-libs",
+  "name": "chanoo-frontend",
   "private": true,
   "scripts": {
     "build": "turbo build",
