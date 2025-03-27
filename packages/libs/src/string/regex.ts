@@ -1,5 +1,7 @@
 /**
  * 문자열 검증을 위한 정규식 객체
+ * new RegExp(REGEX.NUMBER).test("가나다라") -> false
+ * new RegExp(REGEX.LETTER).test("1234") -> true
  */
 export const REGEX = {
   PHONE_NUMBER: /^(01[016789])(\d{4})(\d{4})$/,
@@ -14,8 +16,10 @@ export const REGEX = {
 
 /**
  * 문자열 수정을 위한 정규식 객체
+ * "가1나2다3라4마5바6".replace(MODIFY_REGEX.LETTER,"") -> "가나다라마바"
+ * "가1나2다3라4마5바6".replace(MODIFY_REGEX.NUMBER,"") -> "123456"
  */
 export const MODIFY_REGEX = {
-  NUMBER: /[^0-9]/g,
-  LETTER: /[0-9]/g,
+  LETTER: /[^0-9]/g,
+  NUMBER: /[0-9]/g,
 } as const;
