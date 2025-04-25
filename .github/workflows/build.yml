@@ -11,8 +11,8 @@ env:
   PNPM_CACHE_FOLDER: .pnpm-store
 
 jobs:
-  release:
-    name: Release
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
