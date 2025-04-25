@@ -1,6 +1,7 @@
 {
+  "extends": "@chanooda/typescript-config-frontend/react",
   "include": ["src/**/*"],
   "compilerOptions": {
-    "jsx": "preserve"
+    "outDir": "dist"
   }
 }

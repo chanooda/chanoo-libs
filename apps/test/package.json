@@ -1,29 +1,30 @@
 {
-  "name": "test",
+  "name": "test-react",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "lint": "eslint src",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@chanooda/libs": "workspace:*",
+    "@chanooda/libs-react": "workspace:*",
+    "@tanstack/react-query": "^5.62.10",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.15.0",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
+    "@chanooda/eslint-config-frontend": "workspace:*",
+    "@chanooda/typescript-config-frontend": "workspace:*",
+    "@types/node": "*",
+    "@types/react": "*",
+    "@types/react-dom": "*",
     "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^9.15.0",
-    "eslint-plugin-react-hooks": "^5.0.0",
-    "eslint-plugin-react-refresh": "^0.4.14",
-    "globals": "^15.12.0",
     "typescript": "~5.6.2",
-    "typescript-eslint": "^8.15.0",
     "vite": "^6.0.1"
   }
 }
