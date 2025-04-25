@@ -17,25 +17,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Setup Node.js 20.x
-        uses: actions/setup-node@v3
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 20.x
-
-      - name: setup pnpm config
-        run: pnpm config set store-dir $PNPM_CACHE_FOLDER
+          node-version: 20
+          cache: 'pnpm'
 
       - name: Install Dependencies
-        run: pnpm
-    
+        run: pnpm install
+
       - name: Create .npmrc file
         run: |
-            cat <<EOF > ~/.npmrc
-                @chanooda:registry=https://npm.pkg.github.com/
-                //npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}
-            EOF
+          cat <<EOF > ~/.npmrc
+              @chanooda:registry=https://npm.pkg.github.com/
+              //npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}
+          EOF
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
@@ -44,5 +45,3 @@ jobs:
           publish: pnpm publish-packages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      
