@@ -13,8 +13,8 @@
       "path": "apps/test-next",
     },
     {
-      "name": "react",
-      "path": "packages/react",
+      "name": "libs-react",
+      "path": "packages/libs-react",
     },
     {
       "name": "libs",

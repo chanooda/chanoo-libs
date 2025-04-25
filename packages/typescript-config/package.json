@@ -1,10 +1,10 @@
 {
   "name": "@chanooda/typescript-config-frontend",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "@chanooda",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+ssh://github.com/chanooda/chanoo-frontend.git"
+    "url": "git+ssh://github.com/chanooda/chanoo-libs.git"
   }
 }

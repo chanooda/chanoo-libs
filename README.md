@@ -1,1 +1,1 @@
-# chanoo-frontend
+# chanoo-libs
