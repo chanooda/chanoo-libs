@@ -35,7 +35,7 @@ jobs:
         run: |
           cat <<EOF > ~/.npmrc
               @chanooda:registry=https://npm.pkg.github.com/
-              //npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}
+              //npm.pkg.github.com/:_authToken=${{ secrets.AUTH_TOKEN }}
           EOF
 
       - name: Create Release Pull Request or Publish to npm
@@ -44,4 +44,4 @@ jobs:
         with:
           publish: pnpm publish-packages
         env:
-          GITHUB_TOKEN: ${{ secrets.AUTH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
