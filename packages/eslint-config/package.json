@@ -6,7 +6,7 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+ssh://github.com/chanooda/chanoo-frontend.git"
+    "url": "git+ssh://github.com/chanooda/chanoo-libs.git"
   },
   "exports": {
     "./base": "./base.js",
