@@ -31,7 +31,10 @@ jobs:
 
       - name: Install Dependencies
         run: pnpm install
-    
+
+      - name: Fetch base branch
+        run: git fetch origin ${{ github.event.pull_request.base.ref }}:${{ github.event.pull_request.base.ref }}
+
       - name: Changesets Status
         run: |
           pnpm changeset status --since=${{ github.event.pull_request.base.ref }}
