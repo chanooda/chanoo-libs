@@ -1,5 +1,11 @@
 # @chanooda/typescript-config-frontend
 
+## 0.0.4
+
+### Patch Changes
+
+- 4592a6b: tsup cnrk
+
 ## 0.0.3
 
 ### Patch Changes
