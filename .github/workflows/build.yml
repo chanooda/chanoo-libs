@@ -1,8 +1,6 @@
 name: Build
 
 on:
-  push:
-    branches: [main, develop]
   pull_request:
     branches: [main, develop]
 
@@ -20,34 +18,17 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Detect branch-update merge
-        id: detect
-        run: |
-          if [[ "$GITHUB_EVENT_HEAD_COMMIT_MESSAGE" == Merge\ branch\ '*' ]]; then
-            echo "is_update_merge=true" >> $GITHUB_OUTPUT
-          else
-            echo "is_update_merge=false" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Exit early on update-branch merge
-        if: steps.detect.outputs.is_update_merge == 'true'
-        run: echo "Skipping entire job for update-branch merge"
-
       - name: Setup pnpm
-        if: steps.detect.outputs.is_update_merge == 'false'
         uses: pnpm/action-setup@v4
 
       - name: Setup node.js
-        if: steps.detect.outputs.is_update_merge == 'false'
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'pnpm'
 
       - name: Install Dependencies
-        if: steps.detect.outputs.is_update_merge == 'false'
         run: pnpm install
 
-      - name: Do real build
-        if: steps.detect.outputs.is_update_merge == 'false'
+      - name: build
         run: pnpm build
