@@ -1,0 +1,41 @@
+# .github/workflows/sync-main-to-develop.yml
+name: Sync main into develop on release
+
+# 보호 브랜치 무시를 위해 contents 쓰기 권한만 부여
+permissions:
+  contents: write
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    name: Merge main → develop
+    runs-on: ubuntu-latest
+    # changeset-action 이 만든 release 커밋에만 동작하도록 필터
+    if: contains(github.event.head_commit.message, 'chore(release)')
+    steps:
+      - name: Checkout repo with PAT
+        uses: actions/checkout@v4
+        with:
+          # PAT_TOKEN 은 보호 브랜치 우회 권한이 있는 개인 액세스 토큰
+          token: ${{ secrets.AUTH_TOKEN }}
+          fetch-depth: 0
+
+      - name: Configure Git user
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Fetch & merge main into develop
+        run: |
+          # develop 브랜치 받아오기
+          git fetch origin develop:develop
+          # develop 체크아웃
+          git checkout develop
+          # main 병합
+          git merge origin/main --no-ff --no-edit
+          # 보호 규칙 무시 PAT 로 푸시
+          git push origin develop
