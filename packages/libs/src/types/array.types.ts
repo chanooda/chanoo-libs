@@ -1,6 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+import type { LastInUnion } from './internal.types';
+
 /**
- * T: 원본 튜플
- * S: 청크 크기 (number 리터럴)
+ * T: 원본 Tuple
+ * S: Chunk 크기 (number 리터럴)
  * Temp: 현재 누적 중인 청크
  */
 export type Chunk<
@@ -19,3 +23,13 @@ export type Chunk<
     Temp['length'] extends 0
     ? []
     : [Temp];
+
+/**
+ * Union 타입을 튜플로 변환하는 타입
+ * @argument U: Union 타입
+ * @argument R: 현재까지 누적된 Tuple
+ * @returns: Tuple 타입
+ */
+export type UnionToTuple<U, R extends any[] = []> = [U] extends [never]
+  ? R
+  : UnionToTuple<Exclude<U, LastInUnion<U>>, [LastInUnion<U>, ...R]>;
