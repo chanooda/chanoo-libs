@@ -1,6 +1,6 @@
 {
   "name": "@chanooda/prettier-config",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "base.json",
   "sideEffects": false,
   "author": "@chanooda",
