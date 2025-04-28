@@ -1,5 +1,11 @@
 # @chanooda/libs
 
+## 0.0.5
+
+### Patch Changes
+
+- 25c5789: sync yml 추가
+
 ## 0.0.4
 
 ### Patch Changes
