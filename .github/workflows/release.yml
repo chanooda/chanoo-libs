@@ -45,3 +45,10 @@ jobs:
           publish: pnpm publish-packages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: sync main to develop
+        run: |
+          git checkout develop
+          git pull origin develop
+          git merge origin/main --no-ff --no-edit
+          git push origin develop
