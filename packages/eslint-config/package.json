@@ -1,6 +1,6 @@
 {
   "name": "@chanooda/eslint-config-frontend",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "@chanooda",
   "license": "MIT",
   "type": "module",
