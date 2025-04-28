@@ -20,11 +20,11 @@
     "typescript": "5.5.4"
   },
   "packageManager": "pnpm@9.0.0",
+  "dependencies": {
+    "@changesets/cli": "^2.29.2"
+  },
   "engines": {
     "node": ">=18"
   },
-  "prettier": "@chanooda/prettier-config",
-  "dependencies": {
-    "@changesets/cli": "^2.29.2"
-  }
+  "prettier": "@chanooda/prettier-config"
 }

@@ -1,8 +1,8 @@
-name: Build
+name: Changesets
 
 on:
   pull_request:
-    branches: [main, develop]
+    branches: [develop]
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -12,7 +12,7 @@ env:
 
 jobs:
   build:
-    name: Build
+    name: Changesets
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -30,5 +30,5 @@ jobs:
       - name: Install Dependencies
         run: pnpm install
     
-      - name: build
-        run: pnpm build
+      - name: Changesets Status
+        run: pnpm changeset status --since=main
