@@ -1,8 +1,8 @@
-name: Build
+name: Changesets
 
 on:
   pull_request:
-    branches: [main, develop]
+    branches: [develop]
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -12,11 +12,13 @@ env:
 
 jobs:
   build:
-    name: Build
+    name: Changesets
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -29,6 +31,10 @@ jobs:
 
       - name: Install Dependencies
         run: pnpm install
-    
-      - name: build
-        run: pnpm build
+
+      - name: Fetch base branch
+        run: git fetch origin ${{ github.event.pull_request.base.ref }}:${{ github.event.pull_request.base.ref }}
+
+      - name: Changesets Status
+        run: |
+          pnpm changeset status --since=${{ github.event.pull_request.base.ref }}

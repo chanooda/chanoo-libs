@@ -8,9 +8,7 @@
     "type": "git",
     "url": "git+ssh://github.com/chanooda/chanoo-libs.git"
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "main": "./src/index.ts",
   "scripts": {
     "test": "jest",
     "build": "tsup src/index.ts --format esm,cjs --dts",
@@ -27,5 +25,10 @@
   },
   "peerDependencies": {
     "@types/node": "*"
+  },
+  "publishConfig": {
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts"
   }
 }
