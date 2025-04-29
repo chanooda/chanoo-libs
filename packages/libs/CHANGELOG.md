@@ -1,5 +1,11 @@
 # @chanooda/libs
 
+## 0.0.8
+
+### Patch Changes
+
+- ded60b6: DeepReadonly util type 추가
+
 ## 0.0.7
 
 ### Patch Changes
