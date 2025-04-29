@@ -1,5 +1,11 @@
 # @chanooda/eslint-config-frontend
 
+## 0.0.6
+
+### Patch Changes
+
+- 0db1557: sync yml 조건 수정
+
 ## 0.0.5
 
 ### Patch Changes
