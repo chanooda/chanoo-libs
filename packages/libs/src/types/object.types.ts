@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /**
  * 2개의 객체를 병합하는 타입
  * @argument T - 덮어 씌어질 Object
@@ -82,3 +83,16 @@ export type DeepPartial<T> = {
 export type StringPropertyNames<T> = {
   [K in keyof T]: T[K] extends string ? K : never; // 조건부 타입에서 string 인 것만 반환
 }[keyof T]; // 그리고 속성의 밸류를 타입으로 반환
+
+/**
+ * 객체의 모든 속성을 readonly로 만드는 타입
+ * @argument T - Object
+ */
+export type DeepReadonly<T> = {
+  readonly [P in keyof T]: T[P] extends object
+    ? // 함수도 object 타입에 속하므로, 함수는 그대로 보존하도록 분기
+      T[P] extends (...args: any[]) => any
+      ? T[P]
+      : DeepReadonly<T[P]>
+    : T[P];
+};
