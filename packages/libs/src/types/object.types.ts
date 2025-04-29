@@ -1,3 +1,34 @@
+/**
+ * 2개의 객체를 병합하는 타입
+ * @argument T - 덮어 씌어질 Object
+ * @argument U - 덮어 씌울 Object
+ * @example
+ * interface A {
+ *   x: {
+ *     y: number;
+ *     z: string;
+ *   };
+ *   w: boolean;
+ * }
+ * interface B {
+ *   x: {
+ *     y: string;   // 타입이 달라도 덮어씌워집니다
+ *     newProp: number;
+ *   };
+ *   v: string;
+ * }
+ * // 결과 타입:
+ * // {
+ * //   x: {
+ * //     y: string;   // B의 y 타입으로 덮어씌워짐
+ * //     z: string;   // A에만 존재
+ * //     newProp: number; // B에만 존재
+ * //   };
+ * //   w: boolean;     // A에만 존재
+ * //   v: string;      // B에만 존재
+ * // }
+ * type Merged = DeepMerge<A, B>;
+ */
 export type DeepMerge<T, U> = {
   [K in keyof T | keyof U]: K extends keyof U
     ? U[K] extends object
@@ -10,4 +41,36 @@ export type DeepMerge<T, U> = {
     : K extends keyof T
       ? T[K]
       : never;
+};
+/**
+ * 객체의 모든 속성을 optional로 만드는 타입
+ * @argument T - Object
+ * @example
+ * ```typescript
+ * interface User {
+ *   id: number;
+ *   profile: {
+ *     name: string;
+ *     contact: {
+ *       email: string;
+ *       phone: string;
+ *     };
+ *   };
+ * }
+ * type PartialUser = DeepPartial<User>;
+ * // Resulting type:
+ * // {
+ * //   id?: number;
+ * //   profile?: {
+ * //     name?: string;
+ * //     contact?: {
+ * //       email?: string;
+ * //       phone?: string;
+ * //     };
+ * //   };
+ * // }
+ * ```
+ */
+export type DeepPartial<T> = {
+  [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
 };
