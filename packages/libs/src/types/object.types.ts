@@ -74,3 +74,11 @@ export type DeepMerge<T, U> = {
 export type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
 };
+
+/**
+ * 객체 type에서 string인 값의 key에 대한 type 반환
+ * @argument T - Object
+ */
+export type StringPropertyNames<T> = {
+  [K in keyof T]: T[K] extends string ? K : never; // 조건부 타입에서 string 인 것만 반환
+}[keyof T]; // 그리고 속성의 밸류를 타입으로 반환
