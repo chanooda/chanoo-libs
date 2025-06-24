@@ -1,4 +1,4 @@
 {
-    "$schema": "https://biomejs.dev/schemas/latest/schema.json",
-    "extends" : ["@chanooda/biome-config-frontend/next"]
+	"$schema": "https://biomejs.dev/schemas/latest/schema.json",
+	"extends": ["@chanooda/biome-config-frontend/next"]
 }
