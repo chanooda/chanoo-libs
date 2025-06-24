@@ -10,7 +10,7 @@ export function mergeObject<T extends object, U extends object>(
 	const result = { ...target } as any;
 
 	for (const key in source) {
-		if (Object.prototype.hasOwnProperty.call(source, key)) {
+		if (Object.hasOwn(source, key)) {
 			const sourceValue = source[key];
 			const targetValue = (result as any)[key];
 

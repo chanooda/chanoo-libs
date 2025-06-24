@@ -11,7 +11,7 @@ export function isEqualWith(
 		xParent?: any,
 		yParent?: any,
 		stack?: Map<any, any>,
-	) => boolean | void,
+	) => boolean | undefined,
 ): boolean {
 	return isEqualWithImpl(
 		a,
@@ -38,7 +38,7 @@ function isEqualWithImpl(
 		xParent?: any,
 		yParent?: any,
 		stack?: Map<any, any>,
-	) => boolean | void,
+	) => boolean | undefined,
 ) {
 	const result = areValuesEqual(a, b, property, aParent, bParent, stack);
 
@@ -79,7 +79,7 @@ function isObjectEqual(
 		xParent?: any,
 		yParent?: any,
 		stack?: Map<any, any>,
-	) => boolean | void,
+	) => boolean | undefined,
 ) {
 	if (Object.is(a, b)) {
 		return true;

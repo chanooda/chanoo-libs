@@ -1,7 +1,7 @@
 import type {
-	DefaultError,
 	MutateOptions as _MutateOptions,
 	UseMutationOptions as _UseMutationOptions,
+	DefaultError,
 } from "@tanstack/react-query";
 import { useMutation as _useMutation } from "@tanstack/react-query";
 import { useRef } from "react";

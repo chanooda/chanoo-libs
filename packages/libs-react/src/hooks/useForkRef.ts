@@ -1,4 +1,4 @@
-import { Ref, RefCallback, RefObject, useMemo } from "react";
+import { type Ref, type RefCallback, type RefObject, useMemo } from "react";
 
 function setRef<T>(
 	ref: RefObject<T | null> | ((instance: T | null) => void) | null | undefined,
@@ -24,5 +24,6 @@ export default function useForkRef<Instance>(
 				setRef(ref, instance);
 			});
 		};
+		// biome-ignore lint/correctness/useExhaustiveDependencies: 모든 값을 의존성 배열에 넣어주고 있음
 	}, refs);
 }

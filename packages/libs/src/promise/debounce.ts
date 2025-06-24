@@ -49,7 +49,7 @@ export function debounce<F extends (...args: any[]) => void>(
 	ms: number,
 	{ edges = ["trailing"], signal }: DebounceOptions = {},
 ): DebounceReturns<F> {
-	let pendingThis: any = undefined,
+	let pendingThis: any,
 		pendingArgs: Parameters<F> | null = null;
 	let timeOutId: NodeJS.Timeout | null = null;
 
