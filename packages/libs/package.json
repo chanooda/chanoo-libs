@@ -14,7 +14,7 @@
 		"test": "jest",
 		"build": "tsup src/index.ts --format esm,cjs --dts",
 		"dev": "tsup src/index.ts --format cjs,esm --dts --watch",
-		"format": "biome format --write --unsafe --max-diagnostics=none",
+		"format": "biome format --write",
 		"lint": "biome lint --write --unsafe --max-diagnostics=none",
 		"check": "biome check --write --unsafe --max-diagnostics=none",
 		"ci-check": "biome ci"

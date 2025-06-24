@@ -1,9 +1,9 @@
 interface DelayArgs {
-  abortType?: 'continue' | 'error';
-  signal?: AbortSignal;
+	abortType?: "continue" | "error";
+	signal?: AbortSignal;
 }
 
-const REJECT_ERROR = 'delay - signal aborted error';
+const REJECT_ERROR = "delay - signal aborted error";
 
 /**
  *
@@ -19,32 +19,32 @@ const REJECT_ERROR = 'delay - signal aborted error';
  * console.log('end');
  */
 export const delay = (
-  ms: number,
-  { signal, abortType = 'error' }: DelayArgs = {}
+	ms: number,
+	{ signal, abortType = "error" }: DelayArgs = {},
 ): Promise<void> => {
-  return new Promise((resolve, reject) => {
-    const abort = () => {
-      if (abortType === 'error') {
-        reject(new Error(REJECT_ERROR));
-      }
+	return new Promise((resolve, reject) => {
+		const abort = () => {
+			if (abortType === "error") {
+				reject(new Error(REJECT_ERROR));
+			}
 
-      if (abortType === 'continue') {
-        resolve();
-      }
-    };
+			if (abortType === "continue") {
+				resolve();
+			}
+		};
 
-    const abortHandler = () => {
-      clearTimeout(timeId);
-      abort();
-    };
+		const abortHandler = () => {
+			clearTimeout(timeId);
+			abort();
+		};
 
-    if (signal?.aborted) return abort();
+		if (signal?.aborted) return abort();
 
-    const timeId = setTimeout(() => {
-      signal?.removeEventListener('abort', abortHandler);
-      resolve();
-    }, ms);
+		const timeId = setTimeout(() => {
+			signal?.removeEventListener("abort", abortHandler);
+			resolve();
+		}, ms);
 
-    signal?.addEventListener('abort', abortHandler, { once: true });
-  });
+		signal?.addEventListener("abort", abortHandler, { once: true });
+	});
 };
