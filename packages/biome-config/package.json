@@ -1,6 +1,6 @@
 {
   "name": "@chanooda/biome-config-frontend",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "@chanooda",
   "license": "MIT",
   "type": "module",
@@ -10,6 +10,6 @@
   },
   "exports": {
     "./common": "./common.json",
-    "./next": "./next.json"  
-  } 
+    "./next": "./next.json"
+  }
 }
