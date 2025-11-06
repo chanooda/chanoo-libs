@@ -4,7 +4,7 @@ import { getObjectSymbols, getObjectType } from "../_internal";
 export function isEqualWith(
 	a: any,
 	b: any,
-	areValuesEqual: (
+	areValuesEqual?: (
 		x: any,
 		y: any,
 		property?: PropertyKey,
@@ -31,7 +31,7 @@ function isEqualWithImpl(
 	aParent: any,
 	bParent: any,
 	stack: Map<any, any> | undefined,
-	areValuesEqual: (
+	areValuesEqual?: (
 		x: any,
 		y: any,
 		property?: PropertyKey,
@@ -40,7 +40,7 @@ function isEqualWithImpl(
 		stack?: Map<any, any>,
 	) => boolean | undefined,
 ) {
-	const result = areValuesEqual(a, b, property, aParent, bParent, stack);
+	const result = areValuesEqual?.(a, b, property, aParent, bParent, stack);
 
 	if (result !== undefined) {
 		return result;
@@ -72,7 +72,7 @@ function isObjectEqual(
 	a: any,
 	b: any,
 	stack: Map<any, any> | undefined,
-	areValuesEqual: (
+	areValuesEqual?: (
 		x: any,
 		y: any,
 		property?: PropertyKey,

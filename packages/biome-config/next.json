@@ -6,23 +6,30 @@
 		"useIgnoreFile": false
 	},
 	"files": {
-		"ignoreUnknown": false
+		"ignoreUnknown": false,
+		"includes": [
+			"**",
+			"!**/node_modules/**",
+			"!**/dist/**",
+			"!**/build/**",
+			"!**/.next/**"
+		]
 	},
 	"formatter": {
 		"enabled": true,
 		"indentStyle": "tab",
-        "indentWidth":2,
-        "lineWidth":100,
-        "lineEnding":"lf"
+		"indentWidth": 2,
+		"lineWidth": 100,
+		"lineEnding": "lf"
 	},
 	"linter": {
 		"enabled": true,
 		"rules": {
 			"recommended": true
 		},
-        "domains":{
-            "next":"all"
-        }
+		"domains": {
+			"next": "all"
+		}
 	},
 	"javascript": {
 		"formatter": {
@@ -37,8 +44,8 @@
 		"actions": {
 			"source": {
 				"organizeImports": "on",
-                "useSortedAttributes": "on",
-                "useSortedProperties": "on"
+				"useSortedAttributes": "on",
+				"useSortedProperties": "on"
 			}
 		}
 	}
