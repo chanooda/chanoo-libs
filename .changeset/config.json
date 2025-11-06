@@ -7,5 +7,5 @@
 	"access": "public",
 	"baseBranch": "develop",
 	"updateInternalDependencies": "patch",
-	"ignore": ["test-react", "test-next"]
+	"ignore": ["test-next"]
 }
