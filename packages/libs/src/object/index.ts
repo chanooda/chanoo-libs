@@ -1,2 +1,2 @@
-export * from './deepGetValueByKey';
-export * from './mergeObject';
+export * from "./deepGetValueByKey";
+export * from "./mergeObject";

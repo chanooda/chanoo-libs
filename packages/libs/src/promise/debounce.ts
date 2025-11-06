@@ -1,27 +1,27 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 interface DebounceOptions {
-  /**
-   * @default ['trailing']
-   */
-  edges?: ('leading' | 'trailing')[];
-  signal?: AbortSignal;
+	/**
+	 * @default ['trailing']
+	 */
+	edges?: ("leading" | "trailing")[];
+	signal?: AbortSignal;
 }
 
 type DebounceReturns<F extends (...args: unknown[]) => void> = ((
-  ...args: Parameters<F>
+	...args: Parameters<F>
 ) => void) & {
-  /**
-   * 진행중인 debounce 취소
-   */
-  cancel: () => void;
-  /**
-   * 함수를 delay 없이 즉시 실행
-   */
-  flush: () => void;
-  /**
-   * debounce 단일 실행
-   */
-  schedule: () => void;
+	/**
+	 * 진행중인 debounce 취소
+	 */
+	cancel: () => void;
+	/**
+	 * 함수를 delay 없이 즉시 실행
+	 */
+	flush: () => void;
+	/**
+	 * debounce 단일 실행
+	 */
+	schedule: () => void;
 };
 
 /**
@@ -45,89 +45,89 @@ type DebounceReturns<F extends (...args: unknown[]) => void> = ((
  * debouncedFunction.cancel();
  */
 export function debounce<F extends (...args: any[]) => void>(
-  fun: F,
-  ms: number,
-  { edges = ['trailing'], signal }: DebounceOptions = {}
+	fun: F,
+	ms: number,
+	{ edges = ["trailing"], signal }: DebounceOptions = {},
 ): DebounceReturns<F> {
-  let pendingThis: any = undefined,
-    pendingArgs: Parameters<F> | null = null;
-  let timeOutId: NodeJS.Timeout | null = null;
+	let pendingThis: any,
+		pendingArgs: Parameters<F> | null = null;
+	let timeOutId: NodeJS.Timeout | null = null;
 
-  const isTrailing = edges?.includes('trailing');
-  const isLeading = edges?.includes('leading');
+	const isTrailing = edges?.includes("trailing");
+	const isLeading = edges?.includes("leading");
 
-  const handleTimeOut = () => {
-    if (isTrailing) {
-      invoke();
-    }
+	const handleTimeOut = () => {
+		if (isTrailing) {
+			invoke();
+		}
 
-    cancel();
-  };
+		cancel();
+	};
 
-  const invoke = () => {
-    if (pendingArgs !== null) {
-      fun.apply(pendingThis, pendingArgs);
-      pendingArgs = null;
-      pendingThis = undefined;
-    }
-  };
+	const invoke = () => {
+		if (pendingArgs !== null) {
+			fun.apply(pendingThis, pendingArgs);
+			pendingArgs = null;
+			pendingThis = undefined;
+		}
+	};
 
-  // 즉시 debounce 재실행
-  const schedule = () => {
-    if (timeOutId !== null) {
-      clearTimeout(timeOutId);
-    }
+	// 즉시 debounce 재실행
+	const schedule = () => {
+		if (timeOutId !== null) {
+			clearTimeout(timeOutId);
+		}
 
-    timeOutId = setTimeout(() => {
-      timeOutId = null;
+		timeOutId = setTimeout(() => {
+			timeOutId = null;
 
-      handleTimeOut();
-    }, ms);
-  };
+			handleTimeOut();
+		}, ms);
+	};
 
-  const cancelTimer = () => {
-    if (timeOutId !== null) {
-      clearTimeout(timeOutId!);
-      timeOutId = null;
-    }
-  };
+	const cancelTimer = () => {
+		if (timeOutId !== null) {
+			clearTimeout(timeOutId!);
+			timeOutId = null;
+		}
+	};
 
-  // 진행중인 debounce 취소
-  const cancel = () => {
-    cancelTimer();
-    pendingArgs = null;
-    pendingThis = undefined;
-  };
+	// 진행중인 debounce 취소
+	const cancel = () => {
+		cancelTimer();
+		pendingArgs = null;
+		pendingThis = undefined;
+	};
 
-  // 즉시 함수 실행
-  const flush = () => {
-    cancelTimer();
-    invoke();
-  };
+	// 즉시 함수 실행
+	const flush = () => {
+		cancelTimer();
+		invoke();
+	};
 
-  const debounced = function (this: unknown, ...args: Parameters<F>) {
-    if (signal?.aborted) {
-      return;
-    }
+	const debounced = function (this: unknown, ...args: Parameters<F>) {
+		if (signal?.aborted) {
+			return;
+		}
 
-    // eslint-disable-next-line @typescript-eslint/no-this-alias
-    pendingThis = this;
-    pendingArgs = args;
+		// eslint-disable-next-line @typescript-eslint/no-this-alias
+		pendingThis = this;
+		pendingArgs = args;
 
-    const isFirstCall = timeOutId === null;
+		const isFirstCall = timeOutId === null;
 
-    schedule();
+		schedule();
 
-    if (isLeading && isFirstCall) {
-      invoke();
-    }
-  };
+		if (isLeading && isFirstCall) {
+			invoke();
+		}
+	};
 
-  debounced.cancel = cancel;
-  debounced.flush = flush;
-  debounced.schedule = schedule;
+	debounced.cancel = cancel;
+	debounced.flush = flush;
+	debounced.schedule = schedule;
 
-  signal?.addEventListener('abort', cancel, { once: true });
+	signal?.addEventListener("abort", cancel, { once: true });
 
-  return debounced;
+	return debounced;
 }
