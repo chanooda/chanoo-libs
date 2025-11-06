@@ -5,27 +5,27 @@
  * @returns 일치하는 모든 값이 담긴 배열 (없으면 빈 배열)
  */
 export function deepGetValuesByKey(obj: unknown, key: string): unknown[] {
-  const results: unknown[] = [];
+	const results: unknown[] = [];
 
-  function helper(node: unknown) {
-    if (node === null || typeof node !== 'object') return;
+	function helper(node: unknown) {
+		if (node === null || typeof node !== "object") return;
 
-    if (Array.isArray(node)) {
-      for (const item of node) {
-        helper(item);
-      }
-      return;
-    }
+		if (Array.isArray(node)) {
+			for (const item of node) {
+				helper(item);
+			}
+			return;
+		}
 
-    const record = node as Record<string, unknown>;
-    for (const [k, v] of Object.entries(record)) {
-      if (k === key) {
-        results.push(v);
-      }
-      helper(v);
-    }
-  }
+		const record = node as Record<string, unknown>;
+		for (const [k, v] of Object.entries(record)) {
+			if (k === key) {
+				results.push(v);
+			}
+			helper(v);
+		}
+	}
 
-  helper(obj);
-  return results;
+	helper(obj);
+	return results;
 }

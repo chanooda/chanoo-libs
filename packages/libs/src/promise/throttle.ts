@@ -1,23 +1,25 @@
-import { debounce } from './debounce';
+import { debounce } from "./debounce";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 interface ThrottleArgs {
-  /**
-   * @default ['leading']
-   */
-  edges?: ('leading' | 'trailing')[];
-  signal?: AbortSignal;
+	/**
+	 * @default ['leading']
+	 */
+	edges?: ("leading" | "trailing")[];
+	signal?: AbortSignal;
 }
 
-type ThrottleReturns<F extends (...args: any[]) => void> = ((...args: Parameters<F>) => void) & {
-  /**
-   * 진행중인 throttle 취소
-   */
-  cancel: () => void;
-  /**
-   * throttle 즉시 실행
-   */
-  flush: () => void;
+type ThrottleReturns<F extends (...args: any[]) => void> = ((
+	...args: Parameters<F>
+) => void) & {
+	/**
+	 * 진행중인 throttle 취소
+	 */
+	cancel: () => void;
+	/**
+	 * throttle 즉시 실행
+	 */
+	flush: () => void;
 };
 
 /**
@@ -41,29 +43,29 @@ type ThrottleReturns<F extends (...args: any[]) => void> = ((...args: Parameters
  * throttledFunction.cancel();
  */
 export function throttle<F extends (...args: any[]) => void>(
-  func: F,
-  ms: number,
-  { signal, edges = ['leading'] }: ThrottleArgs = {}
+	func: F,
+	ms: number,
+	{ signal, edges = ["leading"] }: ThrottleArgs = {},
 ): ThrottleReturns<F> {
-  let pendingAt: number = 0;
+	let pendingAt: number = 0;
 
-  const debounced = debounce(func, ms, { signal, edges });
+	const debounced = debounce(func, ms, { signal, edges });
 
-  const throttled = function (...args: Parameters<F>) {
-    if (!pendingAt) {
-      pendingAt = Date.now();
-    } else {
-      if (Date.now() - pendingAt >= ms) {
-        pendingAt = Date.now();
-        debounced.cancel();
-        debounced(...args);
-      }
-    }
-    debounced(...args);
-  };
+	const throttled = (...args: Parameters<F>) => {
+		if (!pendingAt) {
+			pendingAt = Date.now();
+		} else {
+			if (Date.now() - pendingAt >= ms) {
+				pendingAt = Date.now();
+				debounced.cancel();
+				debounced(...args);
+			}
+		}
+		debounced(...args);
+	};
 
-  throttled.cancel = debounced.cancel;
-  throttled.flush = debounced.flush;
+	throttled.cancel = debounced.cancel;
+	throttled.flush = debounced.flush;
 
-  return throttled;
+	return throttled;
 }

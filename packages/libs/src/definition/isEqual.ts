@@ -1,4 +1,4 @@
-import { isEqualWith } from './isEqualWith';
+import { isEqualWith } from "./isEqualWith";
 
 /**
  *
@@ -7,5 +7,5 @@ import { isEqualWith } from './isEqualWith';
  * @returns {boolean} 두 값이 같으면 true, 다르면 false
  */
 export function isEqual(a: unknown, b: unknown): boolean {
-  return isEqualWith(a, b, () => {});
+	return isEqualWith(a, b);
 }

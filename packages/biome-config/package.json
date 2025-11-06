@@ -1,0 +1,15 @@
+{
+  "name": "@chanooda/biome-config-frontend",
+  "version": "0.0.0",
+  "author": "@chanooda",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://github.com/chanooda/chanoo-libs.git"
+  },
+  "exports": {
+    "./common": "./common.json",
+    "./next": "./next.json"  
+  } 
+}

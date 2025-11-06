@@ -1,4 +1,4 @@
-import type { ObjectType } from './objectType';
+import type { ObjectType } from "./objectType";
 
 /**
  *
@@ -11,5 +11,5 @@ import type { ObjectType } from './objectType';
  * getObjectType(new Float32Array()) // 'Float32Array'
  */
 export function getObjectType<T>(value: T): ObjectType {
-  return Object.prototype.toString.call(value).slice(8, -1) as ObjectType;
+	return Object.prototype.toString.call(value).slice(8, -1) as ObjectType;
 }
