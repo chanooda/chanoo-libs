@@ -1,5 +1,11 @@
 # @chanooda/typescript-config-frontend
 
+## 0.0.7
+
+### Patch Changes
+
+- 1d93150: 마이그레이션
+
 ## 0.0.6
 
 ### Patch Changes
