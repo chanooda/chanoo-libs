@@ -1,13 +1,10 @@
-import type { Chunk } from "../types/array.types";
+import type { Chunk } from '../types/array.types';
 
-export function chunk<T extends unknown[], C extends number>(
-	arr: [...T],
-	size: C,
-): Chunk<T, C> {
+export function chunk<T extends unknown[], C extends number>(arr: [...T], size: C): Chunk<T, C> {
 	// 런타임 구현
 	if (size <= 0) {
 		// 청크 크기가 0 이하인 경우, 여기서는 빈 배열을 반환 (혹은 에러 throw)
-		throw new Error("size는 0보다 커야 합니다.");
+		throw new Error('size는 0보다 커야 합니다.');
 	}
 
 	// 여기서의 result는 실제 런타임 동작을 위해 unknown[][]로 두어도 무방.

@@ -1,4 +1,4 @@
-export * from "./api/mutate";
-export * from "./api/query";
+export * from './api/mutate';
+export * from './api/query';
 
-export * from "./types/props";
+export * from './types/props';

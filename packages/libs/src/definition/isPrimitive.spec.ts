@@ -1,7 +1,7 @@
-import { isPrimitive } from "./isPrimitive";
+import { isPrimitive } from './isPrimitive';
 
-describe("isPrimitive", () => {
-	it("원시 값이 인자로 들어오면 true를 반환해야 한다.", () => {
+describe('isPrimitive', () => {
+	it('원시 값이 인자로 들어오면 true를 반환해야 한다.', () => {
 		const isNull = isPrimitive(null);
 		expect(isNull).toBe(true);
 
@@ -14,7 +14,7 @@ describe("isPrimitive", () => {
 		const isNumber = isPrimitive(0);
 		expect(isNumber).toBe(true);
 
-		const isString = isPrimitive("");
+		const isString = isPrimitive('');
 		expect(isString).toBe(true);
 
 		const isSymbol = isPrimitive(Symbol());
@@ -24,7 +24,7 @@ describe("isPrimitive", () => {
 		expect(isBigInt).toBe(true);
 	});
 
-	it("원시 값이 아닌 인자로 들어오면 false를 반환해야 한다.", () => {
+	it('원시 값이 아닌 인자로 들어오면 false를 반환해야 한다.', () => {
 		const isObject = isPrimitive({});
 		expect(isObject).toBe(false);
 

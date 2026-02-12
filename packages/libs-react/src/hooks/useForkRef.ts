@@ -1,10 +1,10 @@
-import { type Ref, type RefCallback, type RefObject, useMemo } from "react";
+import { type Ref, type RefCallback, type RefObject, useMemo } from 'react';
 
 function setRef<T>(
 	ref: RefObject<T | null> | ((instance: T | null) => void) | null | undefined,
 	value: T | null,
 ): void {
-	if (typeof ref === "function") {
+	if (typeof ref === 'function') {
 		ref(value);
 	} else if (ref) {
 		ref.current = value;

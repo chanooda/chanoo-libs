@@ -4,11 +4,8 @@
  * @param key 찾고자 하는 프로퍼티 이름
  * @returns 해당 key의 값 (없으면 undefined)
  */
-export function deepGetValueByKey(
-	obj: unknown,
-	key: string,
-): unknown | undefined {
-	if (obj === null || typeof obj !== "object") {
+export function deepGetValueByKey(obj: unknown, key: string): unknown | undefined {
+	if (obj === null || typeof obj !== 'object') {
 		return undefined;
 	}
 

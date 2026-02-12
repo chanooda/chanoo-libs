@@ -3,7 +3,7 @@ interface DebounceOptions {
 	/**
 	 * @default ['trailing']
 	 */
-	edges?: ("leading" | "trailing")[];
+	edges?: ('leading' | 'trailing')[];
 	signal?: AbortSignal;
 }
 
@@ -47,14 +47,14 @@ type DebounceReturns<F extends (...args: unknown[]) => void> = ((
 export function debounce<F extends (...args: any[]) => void>(
 	fun: F,
 	ms: number,
-	{ edges = ["trailing"], signal }: DebounceOptions = {},
+	{ edges = ['trailing'], signal }: DebounceOptions = {},
 ): DebounceReturns<F> {
 	let pendingThis: any,
 		pendingArgs: Parameters<F> | null = null;
 	let timeOutId: NodeJS.Timeout | null = null;
 
-	const isTrailing = edges?.includes("trailing");
-	const isLeading = edges?.includes("leading");
+	const isTrailing = edges?.includes('trailing');
+	const isLeading = edges?.includes('leading');
 
 	const handleTimeOut = () => {
 		if (isTrailing) {
@@ -127,7 +127,7 @@ export function debounce<F extends (...args: any[]) => void>(
 	debounced.flush = flush;
 	debounced.schedule = schedule;
 
-	signal?.addEventListener("abort", cancel, { once: true });
+	signal?.addEventListener('abort', cancel, { once: true });
 
 	return debounced;
 }

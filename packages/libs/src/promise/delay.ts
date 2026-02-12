@@ -1,9 +1,9 @@
 interface DelayArgs {
-	abortType?: "continue" | "error";
+	abortType?: 'continue' | 'error';
 	signal?: AbortSignal;
 }
 
-const REJECT_ERROR = "delay - signal aborted error";
+const REJECT_ERROR = 'delay - signal aborted error';
 
 /**
  *
@@ -20,15 +20,15 @@ const REJECT_ERROR = "delay - signal aborted error";
  */
 export const delay = (
 	ms: number,
-	{ signal, abortType = "error" }: DelayArgs = {},
+	{ signal, abortType = 'error' }: DelayArgs = {},
 ): Promise<void> => {
 	return new Promise((resolve, reject) => {
 		const abort = () => {
-			if (abortType === "error") {
+			if (abortType === 'error') {
 				reject(new Error(REJECT_ERROR));
 			}
 
-			if (abortType === "continue") {
+			if (abortType === 'continue') {
 				resolve();
 			}
 		};
@@ -41,10 +41,10 @@ export const delay = (
 		if (signal?.aborted) return abort();
 
 		const timeId = setTimeout(() => {
-			signal?.removeEventListener("abort", abortHandler);
+			signal?.removeEventListener('abort', abortHandler);
 			resolve();
 		}, ms);
 
-		signal?.addEventListener("abort", abortHandler, { once: true });
+		signal?.addEventListener('abort', abortHandler, { once: true });
 	});
 };

@@ -1,4 +1,4 @@
-import { isEqualWith } from "./isEqualWith";
+import { isEqualWith } from './isEqualWith';
 
 /**
  *

@@ -5,8 +5,7 @@
  */
 export function setSessionStorage(key: string, value: unknown): void {
 	try {
-		const stringValue =
-			typeof value === "string" ? value : JSON.stringify(value);
+		const stringValue = typeof value === 'string' ? value : JSON.stringify(value);
 		window.sessionStorage.setItem(key, stringValue);
 	} catch (error) {
 		throw new Error(`sessionStorage 저장 실패: ${error}`);
