@@ -32,10 +32,10 @@ export const useMutation = <
 
 		_mutate(data, {
 			...mutateOptions,
-			onSettled: (data, error, variables, context) => {
+			onSettled: (data, error, variables, onMutateResult, context) => {
 				isMutatingRef.current = false;
 				if (mutateOptions?.onSettled)
-					mutateOptions?.onSettled(data, error, variables, context);
+					mutateOptions?.onSettled(data, error, variables, onMutateResult, context);
 			},
 		});
 	};

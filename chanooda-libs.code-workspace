@@ -21,16 +21,8 @@
 			"path": "packages/biome-config"
 		},
 		{
-			"name": "eslint-config",
-			"path": "packages/eslint-config"
-		},
-		{
 			"name": "typescript-config",
 			"path": "packages/typescript-config"
-		},
-		{
-			"name": "prettier-config",
-			"path": "packages/prettier-config"
 		}
 	],
 	"settings": {
@@ -41,6 +33,7 @@
 			"source.organizeImports.biome": "explicit",
 			"source.action.useSortedAttributes.biome": "explicit",
 			"source.action.useSortedKeys.biome": "explicit"
-		}
+		},
+		"typescript.tsdk": "Root/node_modules/typescript/lib"
 	}
 }
