@@ -4,19 +4,19 @@
 @source "../components/**/*.{js,ts,jsx,tsx,mdx}";
 
 @theme {
-  --color-background: #ffffff;
-  --color-foreground: #171717;
+	--color-background: #ffffff;
+	--color-foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
-  @theme {
-    --color-background: #0a0a0a;
-    --color-foreground: #ededed;
-  }
+	@theme {
+		--color-background: #0a0a0a;
+		--color-foreground: #ededed;
+	}
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--color-foreground);
-  background: var(--color-background);
+	font-family: Arial, Helvetica, sans-serif;
+	color: var(--color-foreground);
+	background: var(--color-background);
 }
