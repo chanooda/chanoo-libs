@@ -5,11 +5,9 @@
  * @argument U: Union 타입
  * @returns: Intersection 타입
  */
-export type UnionToIntersection<U> = (
-	U extends any
-		? (k: U) => void
-		: never
-) extends (k: infer I) => void
+export type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends (
+	k: infer I,
+) => void
 	? I
 	: never;
 
@@ -18,8 +16,5 @@ export type UnionToIntersection<U> = (
  * @argument U: Union 타입
  * @returns: 마지막 멤버
  **/
-export type LastInUnion<U> = UnionToIntersection<
-	U extends any ? () => U : never
-> extends () => infer L
-	? L
-	: never;
+export type LastInUnion<U> =
+	UnionToIntersection<U extends any ? () => U : never> extends () => infer L ? L : never;

@@ -1,17 +1,15 @@
-import { debounce } from "./debounce";
+import { debounce } from './debounce';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 interface ThrottleArgs {
 	/**
 	 * @default ['leading']
 	 */
-	edges?: ("leading" | "trailing")[];
+	edges?: ('leading' | 'trailing')[];
 	signal?: AbortSignal;
 }
 
-type ThrottleReturns<F extends (...args: any[]) => void> = ((
-	...args: Parameters<F>
-) => void) & {
+type ThrottleReturns<F extends (...args: any[]) => void> = ((...args: Parameters<F>) => void) & {
 	/**
 	 * 진행중인 throttle 취소
 	 */
@@ -45,7 +43,7 @@ type ThrottleReturns<F extends (...args: any[]) => void> = ((
 export function throttle<F extends (...args: any[]) => void>(
 	func: F,
 	ms: number,
-	{ signal, edges = ["leading"] }: ThrottleArgs = {},
+	{ signal, edges = ['leading'] }: ThrottleArgs = {},
 ): ThrottleReturns<F> {
 	let pendingAt: number = 0;
 

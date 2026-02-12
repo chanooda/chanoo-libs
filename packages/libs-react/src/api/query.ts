@@ -1,5 +1,5 @@
-import type { QueryKey } from "@tanstack/react-query";
-import { useQuery as _useQuery } from "@tanstack/react-query";
+import type { QueryKey } from '@tanstack/react-query';
+import { useQuery as _useQuery } from '@tanstack/react-query';
 
 export type UseQueryOptions<
 	TQueryFnData = unknown,
@@ -25,7 +25,7 @@ export const useQuery = <
 			}
 
 			if (options.throwOnError) {
-				return typeof options.throwOnError === "function"
+				return typeof options.throwOnError === 'function'
 					? options.throwOnError(_error, _query)
 					: options.throwOnError;
 			}

@@ -8,7 +8,7 @@ export function deepGetValuesByKey(obj: unknown, key: string): unknown[] {
 	const results: unknown[] = [];
 
 	function helper(node: unknown) {
-		if (node === null || typeof node !== "object") return;
+		if (node === null || typeof node !== 'object') return;
 
 		if (Array.isArray(node)) {
 			for (const item of node) {

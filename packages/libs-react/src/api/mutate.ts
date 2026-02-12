@@ -2,12 +2,16 @@ import type {
 	MutateOptions as _MutateOptions,
 	UseMutationOptions as _UseMutationOptions,
 	DefaultError,
-} from "@tanstack/react-query";
-import { useMutation as _useMutation } from "@tanstack/react-query";
-import { useRef } from "react";
+} from '@tanstack/react-query';
+import { useMutation as _useMutation } from '@tanstack/react-query';
+import { useRef } from 'react';
 
-export type UseMutationOptions<TData, TError, TVariables, TContext> =
-	_UseMutationOptions<TData, TError, TVariables, TContext>;
+export type UseMutationOptions<TData, TError, TVariables, TContext> = _UseMutationOptions<
+	TData,
+	TError,
+	TVariables,
+	TContext
+>;
 export type MutateOptions<TData, TError, TVariables, TContext> =
 	| _MutateOptions<TData, TError, TVariables, TContext>
 	| undefined;

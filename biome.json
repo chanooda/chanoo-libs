@@ -1,0 +1,31 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.2.4/schema.json",
+  "assist": {
+    "actions": {
+      "source": {
+        "useSortedKeys": "off"
+      }
+    }
+  },
+  "extends": ["@chanooda/biome-config-frontend/common"],
+  "files": {
+    "includes": ["!**/node_modules", "!**/.next", "**/*.ts", "**/*.tsx"]
+  },
+  "linter": {
+    "rules": {
+      "a11y": {
+        "noStaticElementInteractions": "warn",
+        "noSvgWithoutTitle": "warn",
+        "useHtmlLang": "warn",
+        "useKeyWithClickEvents": "warn"
+      },
+      "correctness": {
+        "useExhaustiveDependencies": "off",
+        "useUniqueElementIds": "warn"
+      },
+      "style": {
+        "useLiteralEnumMembers": "off"
+      }
+    }
+  }
+}

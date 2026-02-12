@@ -8,6 +8,10 @@
     "type": "git",
     "url": "git+ssh://github.com/chanooda/chanoo-libs.git"
   },
+  "files": [
+    "common.json",
+    "next.json"
+  ],
   "exports": {
     "./common": "./common.json",
     "./next": "./next.json"

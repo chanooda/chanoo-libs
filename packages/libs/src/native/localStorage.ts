@@ -5,8 +5,7 @@
  */
 export function setLocalStorage(key: string, value: unknown): void {
 	try {
-		const stringValue =
-			typeof value === "string" ? value : JSON.stringify(value);
+		const stringValue = typeof value === 'string' ? value : JSON.stringify(value);
 		window.localStorage.setItem(key, stringValue);
 	} catch (error) {
 		throw new Error(`localStorage 저장 실패: ${error}`);

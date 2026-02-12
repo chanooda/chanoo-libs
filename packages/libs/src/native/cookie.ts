@@ -21,7 +21,7 @@ export interface CookieOptions {
 	/**
 	 * SameSite 속성
 	 */
-	sameSite?: "strict" | "lax" | "none";
+	sameSite?: 'strict' | 'lax' | 'none';
 }
 
 /**
@@ -30,23 +30,13 @@ export interface CookieOptions {
  * @param value 저장할 값
  * @param options Cookie 옵션
  */
-export function setCookie(
-	key: string,
-	value: string,
-	options: CookieOptions = {},
-): void {
-	const {
-		expires,
-		path = "/",
-		domain,
-		secure = false,
-		sameSite = "lax",
-	} = options;
+export function setCookie(key: string, value: string, options: CookieOptions = {}): void {
+	const { expires, path = '/', domain, secure = false, sameSite = 'lax' } = options;
 
 	let cookieString = `${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
 
 	if (expires) {
-		if (typeof expires === "number") {
+		if (typeof expires === 'number') {
 			const date = new Date();
 			date.setTime(date.getTime() + expires * 24 * 60 * 60 * 1000);
 			cookieString += `; expires=${date.toUTCString()}`;
@@ -64,7 +54,7 @@ export function setCookie(
 	}
 
 	if (secure) {
-		cookieString += "; secure";
+		cookieString += '; secure';
 	}
 
 	if (sameSite) {
@@ -81,12 +71,12 @@ export function setCookie(
  */
 export function getCookie(key: string): string | null {
 	const name = `${encodeURIComponent(key)}=`;
-	const cookies = document.cookie.split(";");
+	const cookies = document.cookie.split(';');
 
 	for (let i = 0; i < cookies.length; i++) {
 		let cookie = cookies[i];
 		if (!cookie) continue;
-		while (cookie.charAt(0) === " ") {
+		while (cookie.charAt(0) === ' ') {
 			cookie = cookie.substring(1);
 		}
 		if (cookie.indexOf(name) === 0) {
@@ -104,9 +94,9 @@ export function getCookie(key: string): string | null {
  */
 export function removeCookie(
 	key: string,
-	options: Pick<CookieOptions, "path" | "domain"> = {},
+	options: Pick<CookieOptions, 'path' | 'domain'> = {},
 ): void {
-	const { path = "/", domain } = options;
+	const { path = '/', domain } = options;
 
 	let cookieString = `${encodeURIComponent(key)}=; expires=Thu, 01 Jan 1970 00:00:00 UTC`;
 
@@ -129,12 +119,12 @@ export function getAllCookies(): Record<string, string> {
 	const cookies: Record<string, string> = {};
 
 	if (document.cookie) {
-		const cookieArray = document.cookie.split(";");
+		const cookieArray = document.cookie.split(';');
 
 		for (let i = 0; i < cookieArray.length; i++) {
 			const cookie = cookieArray[i]?.trim();
 			if (!cookie) continue;
-			const [key, value] = cookie.split("=");
+			const [key, value] = cookie.split('=');
 
 			if (key && value) {
 				cookies[decodeURIComponent(key)] = decodeURIComponent(value);
@@ -167,19 +157,11 @@ export function setCookieWithDays(
 	key: string,
 	value: string,
 	days: number,
-	options: Omit<CookieOptions, "expires"> = {},
+	options: Omit<CookieOptions, 'expires'> = {},
 ): void {
 	// 오늘 자정 시간 계산
 	const now = new Date();
-	const todayMidnight = new Date(
-		now.getFullYear(),
-		now.getMonth(),
-		now.getDate(),
-		0,
-		0,
-		0,
-		0,
-	);
+	const todayMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0, 0);
 
 	// 오늘 자정부터 일수만큼 더한 날의 자정
 	const expireDate = new Date(todayMidnight);

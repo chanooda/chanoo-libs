@@ -1,4 +1,4 @@
-import type { ObjectType } from "./objectType";
+import type { ObjectType } from './objectType';
 
 /**
  *
