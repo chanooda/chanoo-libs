@@ -6,5 +6,10 @@
   "repository": {
     "type": "git",
     "url": "git+ssh://github.com/chanooda/chanoo-libs.git"
-  }
+  },
+  "files": [
+    "base.json",
+    "react.json",
+    "next.json"
+  ]
 }

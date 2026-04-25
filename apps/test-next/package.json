@@ -1,32 +1,32 @@
 {
-	"name": "test-next",
-	"version": "0.1.1",
-	"private": true,
-	"type": "module",
-	"scripts": {
-		"dev": "next dev --turbopack",
-		"build": "next build",
-		"start": "next start",
-		"format": "biome format --write",
-		"lint": "biome lint --write --unsafe --max-diagnostics=none",
-		"check": "biome check --write --unsafe --max-diagnostics=none",
-		"ci-check": "biome ci"
-	},
-	"dependencies": {
-		"@chanooda/libs-react": "workspace:*",
-		"@chanooda/libs": "workspace:*",
-		"next": "16.1.6",
-		"react": "^19.2.4",
-		"react-dom": "^19.2.4"
-	},
-	"devDependencies": {
-		"@chanooda/typescript-config-frontend": "workspace:*",
-		"@chanooda/biome-config-frontend": "workspace:*",
-		"@types/react": "*",
-		"@types/react-dom": "*",
-		"@types/node": "*",
-		"postcss": "^8",
-		"tailwindcss": "^4.1.18",
-		"typescript": "5.9.3"
-	}
+  "name": "test-next",
+  "version": "0.1.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "format": "biome format --write",
+    "lint": "biome lint --write --unsafe --max-diagnostics=none",
+    "check": "biome check --write --unsafe --max-diagnostics=none",
+    "ci-check": "biome ci"
+  },
+  "dependencies": {
+    "@chanooda/libs-react": "workspace:*",
+    "@chanooda/libs": "workspace:*",
+    "next": "16.1.6",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@chanooda/typescript-config-frontend": "workspace:*",
+    "@chanooda/biome-config-frontend": "workspace:*",
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "@types/node": "*",
+    "postcss": "^8",
+    "tailwindcss": "^4.1.18",
+    "typescript": "5.9.3"
+  }
 }

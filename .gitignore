@@ -39,3 +39,5 @@ yarn-error.log*
 
 .npmrc
 dist
+.serena
+settings.local.json
