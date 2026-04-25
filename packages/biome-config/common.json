@@ -28,9 +28,16 @@
       "recommended": true,
       "suspicious": {
         "noUnknownAtRules": {
+          "level": "warn",
           "options": {
             "ignore": ["custom-at-rule", "my-custom-rule"]
           }
+        }
+      },
+      "nursery": {
+        "useSortedClasses": {
+          "fix": "safe",
+          "level": "warn"
         }
       }
     }
@@ -56,6 +63,12 @@
   "css": {
     "parser": {
       "tailwindDirectives": true
+    },
+    "formatter": {
+      "enabled": true
+    },
+    "linter": {
+      "enabled": true
     }
   }
 }

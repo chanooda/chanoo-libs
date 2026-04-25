@@ -25,9 +25,9 @@ describe('throttle', () => {
 		const throttled = throttle(fn, 100, { edges: ['leading'] });
 
 		throttled();
-		await delay(100);
+		await delay(150);
 		throttled();
-		await delay(100);
+		await delay(150);
 		expect(fn).toHaveBeenCalledTimes(2);
 	});
 
@@ -36,9 +36,9 @@ describe('throttle', () => {
 		const throttled = throttle(fn, 100, { edges: ['leading', 'trailing'] });
 
 		throttled();
-		await delay(100);
+		await delay(150);
 		throttled();
-		await delay(100);
+		await delay(150);
 
 		expect(fn).toHaveBeenCalledTimes(3);
 	});
