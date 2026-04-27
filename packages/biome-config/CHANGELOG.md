@@ -1,5 +1,11 @@
 # @chanooda/biome-config-frontend
 
+## 0.0.3
+
+### Patch Changes
+
+- 9982b7d: biome config 추가
+
 ## 0.0.2
 
 ### Patch Changes

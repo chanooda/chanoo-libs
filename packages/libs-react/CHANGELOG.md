@@ -1,5 +1,11 @@
 # @chanooda/libs-react
 
+## 0.0.9
+
+### Patch Changes
+
+- 9982b7d: biome config 추가
+
 ## 0.0.8
 
 ### Patch Changes
